@@ -6,7 +6,14 @@ public class Producto {
 
     public Producto(String nombre, double precio) {
         this.nombre = nombre;
-        this.precio = precio;
+        if (Math.signum(precio) == 1)
+        {
+            this.precio = precio;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Precios mayores a cero, hay que facturar.");
+        }
     }
 
     public String getNombre() {
