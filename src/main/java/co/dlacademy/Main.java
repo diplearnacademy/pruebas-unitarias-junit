@@ -7,6 +7,7 @@ public class Main {
         Producto producto1 = new Producto("Camisa", 25.0);
         Producto producto2 = new Producto("Pantalón", 35.0);
         Producto producto3 = new Producto("Zapatos", 50.0);
+        Producto producto4 = new Producto("Coca", 5000.0);
 
 
         // Crear carrito de compras
