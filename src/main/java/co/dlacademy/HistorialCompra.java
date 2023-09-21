@@ -1,10 +1,13 @@
 package co.dlacademy;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class HistorialCompra {
     private List<Compra> compras;
+    private Date fecha;
+
 
     public HistorialCompra() {
         compras = new ArrayList<>();

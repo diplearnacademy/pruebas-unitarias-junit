@@ -7,8 +7,12 @@ public class Compra {
     private Carrito carrito;
 
     public Compra(Carrito carrito) {
-        this.fecha = new Date();
-        this.carrito = carrito;
+        if (carrito == null ){
+            throw new IllegalArgumentException("El parametro nombre no puede ser nulo o vacio");
+        }else {
+            this.fecha = new Date();
+            this.carrito = carrito;
+        }
     }
 
     public Date getFecha() {
@@ -22,5 +26,7 @@ public class Compra {
     public double getTotal() {
         return carrito.calcularTotal();
     }
+
+
 }
 
