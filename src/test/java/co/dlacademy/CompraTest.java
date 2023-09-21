@@ -38,7 +38,7 @@ public class CompraTest {
     @Test
     void obtenerCarrito(){
 
-        Assertions.assertNotNull(compra.getCarrito());
+        Assertions.assertEquals(carrito,compra.getCarrito());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package co.dlacademy;
 
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,6 @@ public class HistorialCompraTest {
     private Producto producto;
     private Producto producto2;
 
-    private List<Compra> compras= new ArrayList<>();
     private List<Compra> compras2= new ArrayList<>();
 
 
@@ -32,8 +32,20 @@ public class HistorialCompraTest {
         compra = new Compra(carrito);
         producto =new Producto("pantalon", 50);
         producto2 =new Producto("Camisa", 50);
+        carrito.agregarProducto(producto);
+        carrito.agregarProducto(producto2);
 
 
+    }
+
+    @AfterEach
+    void limpiar(){
+        carrito = null;
+        producto= null;
+        producto2=null;
+        compra=null;
+        historialCompra=null;
+        System.out.println("Se ejecuto el limpiar");
     }
 
     @Test
@@ -48,8 +60,10 @@ public class HistorialCompraTest {
     void obtenerCompra(){
         historialCompra.agregarCompra(carrito);
         compras2= historialCompra.obtenerCompras();
-        compras.add(compra);
-        Assertions.assertEquals(compras,compras2);
+        Carrito carritoDevuelto =historialCompra.obtenerCompras().get(0).getCarrito();
+        //Assertions.assertEquals(1, compras2.size());
+        Assertions.assertEquals(carrito, carritoDevuelto);
+
 
 
     }
