@@ -18,9 +18,19 @@ public class CuentaTest {
     public void testOrigenFondosSuficientes()
     {
         //A
-        Cuenta cuentaOrigen = new Cuenta("1234",0.0);
+        Cuenta cuentaOrigen = new Cuenta("1234",1.0);
         //A
         //A
         Assertions.assertTrue(cuentaOrigen.fondosSuficientes());
+    }
+
+    @Test
+    public void testOrigenFondosInsuficientes()
+    {
+        //A
+        Cuenta cuentaOrigen = new Cuenta("1234",0.0);
+        //A
+        //A
+        Assertions.assertFalse(cuentaOrigen.fondosSuficientes());
     }
 }
