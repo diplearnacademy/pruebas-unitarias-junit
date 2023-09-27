@@ -3,6 +3,15 @@ package co.dlacademy;
 public class Cuenta {
 
     private String numeroCuenta;
+    private int fondos;
+
+    public int getFondos() {
+        return fondos;
+    }
+
+    public void setFondos(int fondos) {
+        this.fondos = fondos;
+    }
 
     public Cuenta(String numeroCuenta) {
         this.numeroCuenta = numeroCuenta;
@@ -25,4 +34,9 @@ public class Cuenta {
         }
         return cuentasMensaje;
     }
+
+    public boolean fondosSuficientes(){
+
+    }
+
 }

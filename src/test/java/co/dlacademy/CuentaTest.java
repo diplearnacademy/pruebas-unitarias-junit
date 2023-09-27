@@ -11,6 +11,13 @@ public class CuentaTest {
         Cuenta cuentaDestino = new Cuenta("4321");
         String resultado = cuentaOrigen.validarCuentas(1000, cuentaOrigen, cuentaDestino);
 
-        Assertions.assertEquals("cuentas diferentes", resultado);
+        Assertions.assertEquals("Cuentas diferentes", resultado);
     }
+
+    @Test
+    public void testOrigenFondosSuficientes(){
+        Cuenta cuentaOrigen = new Cuenta("5678");
+        Assertions.assertTrue(cuentaOrigen.fondosSuficientes());
+    }
+
 }
