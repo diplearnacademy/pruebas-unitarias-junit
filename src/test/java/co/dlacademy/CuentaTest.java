@@ -7,11 +7,20 @@ public class CuentaTest {
 
     @Test
     public void testCuentaOrigenDestinoDiferentes(){
-        Cuenta cuentaOrigen = new Cuenta("4578963");
-        Cuenta cuentaDestino = new Cuenta("9638520");
+        Cuenta cuentaOrigen = new Cuenta("4578963",1.0);
+        Cuenta cuentaDestino = new Cuenta("9638520",1.0);
         String resultado=cuentaOrigen.validarCuentas(10000,cuentaOrigen, cuentaDestino);
 
         Assertions.assertEquals("Cuentas diferentes", resultado);
     }
 
+    @Test
+    public void testOrigenFondosSuficientes()
+    {
+        //A
+        Cuenta cuentaOrigen = new Cuenta("1234",0.0);
+        //A
+        //A
+        Assertions.assertTrue(cuentaOrigen.fondosSuficientes());
+    }
 }

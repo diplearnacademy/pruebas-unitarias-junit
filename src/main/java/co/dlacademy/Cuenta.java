@@ -3,9 +3,19 @@ package co.dlacademy;
 public class Cuenta {
 
     private String numeroCuenta;
+    private double fondos;
 
-    public Cuenta(String numeroCuenta) {
+    public Cuenta(String numeroCuenta, double fondos) {
         this.numeroCuenta = numeroCuenta;
+        this.fondos = fondos;
+    }
+
+    public double getFondos() {
+        return fondos;
+    }
+
+    public void setFondos(int fondos) {
+        this.fondos = fondos;
     }
 
     public void setNumeroCuenta(int numeroCuenta) {
@@ -24,5 +34,10 @@ public class Cuenta {
             cuentasMensaje="Cuentas iguales";
         }
        return cuentasMensaje;
+    }
+
+    public boolean fondosSuficientes()
+    {
+        return getFondos() > 0;
     }
 }
