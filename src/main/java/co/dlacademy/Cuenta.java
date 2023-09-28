@@ -1,10 +1,9 @@
 package co.dlacademy;
 
-import java.sql.SQLOutput;
 
 public class Cuenta {
 
-  private double fondos;
+  private Double fondos;
   private String numeroCuenta;
 
   public Cuenta(double fondos, String numeroCuenta) {
