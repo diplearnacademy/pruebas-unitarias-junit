@@ -1,21 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Pruebas TestNg"  parallel="methods" thread-count="3">
-    <test name="Pruebas Carrito de Compras">
+<suite name="Pruebas TestNg" >
+    <test name="Pruebas cuentas bancarias">
         <classes>
-            <class name="co.dlacademy.ProductoTest">
-                <methods>
-                    <include name="testObtenerNombre">
-                        <parameter name="nombreProducto" value="Zapatos"/>
-                        <parameter name="precio" value="30.8"/>
-                    </include>
-                    <include name="testObtenerPrecio"/>
-                    <include name="testProductoSinNombre"/>
-                    <include name="testProductoPrecioNegativo"/>
-                </methods>
-            </class>
-            <class name="co.dlacademy.CarritoTest"/>
-            <class name="co.dlacademy.HistorialCompraTest"/>
-            <class name="co.dlacademy.CompraTest"/>
+            <class name="co.dlacademy.PersonaTest"/>
+            <class name="co.dlacademy.TransferenciaDeFondosTest"/>
         </classes>
     </test>
 </suite>

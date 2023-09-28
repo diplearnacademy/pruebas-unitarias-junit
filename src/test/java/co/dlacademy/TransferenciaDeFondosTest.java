@@ -1,7 +1,7 @@
 package co.dlacademy;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 public class TransferenciaDeFondosTest {
 
@@ -12,7 +12,7 @@ public class TransferenciaDeFondosTest {
          Cuenta cuentaOrigen = new Cuenta (500,"123456");
          Cuenta cuentaDestino = new Cuenta (500,"123456");
          String mensaje = cuentaOrigen.verificarCuentas(cuentaOrigen.getNumeroCuenta(),cuentaDestino.getNumeroCuenta());
-         Assertions.assertEquals("Las cuentas no pueden ser iguales",mensaje );
+         Assert.assertEquals(mensaje,"Las cuentas no pueden ser iguales");
 
      }
 
@@ -20,7 +20,7 @@ public class TransferenciaDeFondosTest {
     void testConsultaDeFondos(){
          Cuenta cuentaOrigen = new Cuenta (0,"123456");
 
-         Assertions.assertThrows(IllegalArgumentException.class ,()->cuentaOrigen.verificarSaldo(cuentaOrigen));
+         Assert.assertThrows(IllegalArgumentException.class ,()->cuentaOrigen.verificarSaldo(cuentaOrigen));
 
      }
 
@@ -28,8 +28,7 @@ public class TransferenciaDeFondosTest {
     void testTranferenciaDeFondosMenoresaCero(){
 
          Cuenta cuentaOrigen = new Cuenta (500,"123456");
-
-         Assertions.assertThrows(IllegalArgumentException.class ,()-> cuentaOrigen.tranferirDinero(cuentaOrigen,-100));
+         Assert.assertThrows(IllegalArgumentException.class ,()-> cuentaOrigen.tranferirDinero(cuentaOrigen,-100));
 
 
 
