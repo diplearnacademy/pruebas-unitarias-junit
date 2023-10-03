@@ -1,7 +1,6 @@
 package co.dlacademy;
+
 public class Persona {
-    public String emoticonTriste = "😢😢😢";
-    public String emoticonFeliz = "😀😀😀";
     private String nombre;
     private int IdPersona;
     private Cuenta cuentas[];
@@ -45,47 +44,46 @@ public class Persona {
         return contadorCuentasAgregadas;
     }
 
-    public boolean validarCuentasRepetidas(Cuenta[] numerosDeCuentas, Cuenta nuevaCuenta) {
+    public boolean validarCuentasRepetidas(Cuenta nuevaCuenta) {
         boolean numeroDeCuentaExistente = false;
         for (Cuenta cuentaExistente : cuentas) {
             if (cuentaExistente != null && cuentaExistente.getNumeroCuenta().equals(nuevaCuenta.getNumeroCuenta())) {
                 numeroDeCuentaExistente = true;
-                break; // Salir del bucle si se encuentra una cuenta con el mismo número
+                break;
             }
         }
         return numeroDeCuentaExistente;
     }
 
-    public void agregarCuenta(Cuenta cuenta) {
+    public String agregarCuenta(Cuenta cuenta) {
+        String respuesta = "";
         if (!(this.contadorCuentasAgregadas < Persona.MAX_CUENTAS)) {
-            System.out.println(emoticonTriste + " Has superado el limite de cuentas " + Persona.MAX_CUENTAS + emoticonTriste);
-        } else if (validarCuentasRepetidas(cuentas, cuenta)) {
-            System.out.println(emoticonTriste + " La cuenta que quieres agregar ya existe " + emoticonTriste);
+            respuesta = "Has superado el limite de cuentas";
+        } else if (validarCuentasRepetidas(cuenta)) {
+            respuesta = "La cuenta que quieres agregar ya existe";
         } else {
             this.cuentas[this.contadorCuentasAgregadas++] = cuenta;
-            System.out.println(emoticonFeliz + "Se agregó la cuenta con exito " + cuenta + " " + emoticonFeliz);
+            respuesta = "Se agregó la cuenta con exito";
         }
+        return respuesta;
     }
 
-    public void eliminarCuenta(Cuenta cuenta) {
+    public String eliminarCuenta(Cuenta cuenta) {
+        String respuesta = "La cuenta no se encontró en el banco.";
         for (int i = 0; i < this.contadorCuentasAgregadas; i++) {
             if (cuentas[i].equals(cuenta)) {
-                // Desplazar las cuentas restantes hacia la izquierda
                 for (int j = i; j < this.contadorCuentasAgregadas - 1; j++) {
                     cuentas[j] = cuentas[j + 1];
                 }
                 cuentas[this.contadorCuentasAgregadas - 1] = null;
                 this.contadorCuentasAgregadas--;
-                System.out.println(emoticonFeliz + " La cuenta ha sido eliminada correctamente. " + emoticonFeliz);
-                return;
+                respuesta = "La cuenta ha sido eliminada correctamente.";
             }
         }
-        System.out.println(emoticonTriste + " La cuenta no se encontró en el banco. " + emoticonTriste);
+        return respuesta;
     }
 
-
     public void mostrarCuentas() {
-        // System.out.println("Id persona: " + this.IdPersona);
         System.out.println("Información de la persona con ID #: " + IdPersona);
         System.out.println("nombre: " + nombre);
         for (int i = 0; i < this.contadorCuentasAgregadas; i++) {

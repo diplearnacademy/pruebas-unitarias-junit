@@ -26,14 +26,14 @@ public class Cuenta {
         return numeroCuenta;
     }
 
-    public String validarCuentas(int dinero, Cuenta cuentaOrigen, Cuenta cuentaDestino){
+    public String validarCuentas(int dinero, Cuenta cuentaOrigen, Cuenta cuentaDestino) {
         String cuentasMensaje;
-        if(!(cuentaOrigen.getNumeroCuenta().equals(cuentaDestino.getNumeroCuenta()))){
-            cuentasMensaje="Cuentas diferentes";
-        }else{
-            cuentasMensaje="Cuentas iguales";
+        if (!(cuentaOrigen.getNumeroCuenta().equals(cuentaDestino.getNumeroCuenta()))) {
+            cuentasMensaje = "Cuentas diferentes";
+        } else {
+            cuentasMensaje = "Cuentas iguales";
         }
-       return cuentasMensaje;
+        return cuentasMensaje;
     }
 
     @Override
@@ -44,8 +44,7 @@ public class Cuenta {
                 ',';
     }
 
-    public boolean fondosSuficientes()
-    {
+    public boolean fondosSuficientes() {
         return getFondos() > 0;
     }
 }

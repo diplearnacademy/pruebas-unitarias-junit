@@ -10,7 +10,6 @@ public class CuentaTest {
         Cuenta cuentaOrigen = new Cuenta("4578963",1.0);
         Cuenta cuentaDestino = new Cuenta("9638520",1.0);
         String resultado=cuentaOrigen.validarCuentas(10000,cuentaOrigen, cuentaDestino);
-
         Assertions.assertEquals("Cuentas diferentes", resultado);
     }
 
